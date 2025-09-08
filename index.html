@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arni Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Meie+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <style>
+/* --- Hero Banner --- */
+.header{
+    background-color: rgba(0,0,0,0.5);
+}
+.hero-banner {
+
+  width: 100%;
+  height: 100vh; /* responsive height */
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Carousel Container --- */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* --- Carousel Images --- */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  display: none;
+  object-fit: cover; /* maintain aspect ratio, crop if needed */
+}
+
+.carousel-image.active {
+  display: block;
+}
+
+/* --- Navigation Buttons --- */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  z-index: 2;
+}
+
+.next {
+  right: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* --- Tablet View --- */
+@media (max-width: 1024px) {
+  .hero-banner {
+    height: 60vh;
+  }
+
+  .prev,
+  .next {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+  .hero-banner {
+    height: 50vh;
+  }
+
+  .prev,
+  .next {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+
+        <div class="hero-banner">
+            <div class="carousel">
+                <img src="img/pexels-neosiam-594421.jpg" height="400" width="800" alt="Slide 1" class="carousel-image active">
+                <img src="img/Wedding-Photographer-Nottingham-31.jpg" height="400" width="800" alt="Slide 2" class="carousel-image">
+                <img src="img/OIP.webp" height="400" width="800" alt="Slide 3" class="carousel-image">
+            </div>
+        </div>
+
+        <section class="about-hotc">
+            <div class="about-hotc-image-left">
+               <img src="https://i.postimg.cc/CKBBbqLv/AR209663.webp" alt="About HOTC Image" height="400" width="350">
+            </div>
+            <div class="about-hotc-content">
+               <h1 class="left_h1 h1">Capturing Moments</h1>
+                <h1 class="right_h1 h1"> Creating Memories.</h1>
+                <p class="about-hotc-description">
+                    Considered a rising name in the world of modern photography and visual storytelling, Arni Photography has been redefining the way memories are captured and cherished. With a passion for creating frames that are both timeless and soulful, we have become a trusted choice for portraits, events, and artistic photography across diverse styles.
+                </p>
+                <p class="about-hotc-awards">
+                    For years, Arni Photography has specialized in transforming moments into everlasting stories — whether it’s the warmth of a smile, the grandeur of a celebration, or the serenity of a landscape..
+                </p>
+            </div>
+            <div class="about-hotc-image-right">
+                  <img src="https://i.postimg.cc/kGdbJgCT/8.webp" alt="About HOTC Image" height="400" width="350">
+               
+            </div>
+            </section>
+        <section >
+                <h1 class="h1">Through the Lens of Arni </h1>
+        <p class="para">We don’t just take pictures, we create memories you can hold.</p>
+        <div class="image-gallery-grid">
+            <img src="https://i.postimg.cc/T2rbkgjF/10.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/fbtCkk4s/1.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/rmqD3YNH/01.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/Xq6mWmvw/JSB02002.jpg" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/VvYHS1BF/21.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/PxF8DQ1F/AR202614.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/nh0SXM3S/DSC07403.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/T3rHfCbx/DSC04156.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/9MzDcwsP/AR205475.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/fbtCkk4s/1.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/rmqD3YNH/01.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/q7MkVtFk/127.jpg" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/J0G288NY/DSC03554.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/7hv86bKJ/ARN05320.jpg" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/KcJ096Dd/JSB01808.webp" width="382" height="381" alt="Gallery Image">
+            <img src="https://i.postimg.cc/yYNZVdS8/DSC08801.jpg" width="382" height="381" alt="Gallery Image">
+        </div>
+            </section>
+        <section class="recent-wedding-section">
+            <h1 class="h1">Every Picture Speaks, Every Frame <br> Holds Your Story </h1>
+        <p class="para">We believe in storytelling through lenses, not just taking pictures</p>
+        <div class="recent-weddings">
+            <div class="recent-weddings-content">
+                <div class="wedding-card">
+                    <img src="https://i.postimg.cc/v81ZZVZT/95.jpg" alt="Reva & Zach">
+                    <div class="wedding-info">
+                        <p class="wedding-name">wedding Photos</p>
+                        <!-- <p class="wedding-date">Oct 7, 2024</p> -->
+                    </div>
+                </div>
+                <div class="wedding-card">
+                    <img src="https://i.postimg.cc/0ybDCQ8B/23.jpg" alt="Wedding Image">
+                    <div class="wedding-info">
+                        <p class="wedding-name">Sremantham</p>
+                        <!-- <p class="wedding-date second">Aug 25, 2024</p> -->
+                    </div>
+                </div>
+                <div class="wedding-card">
+                    <img src="https://i.postimg.cc/tJWmJ5cF/DSC00126.webp" alt="Alia & Ranbir, Mumbai">
+                    <div class="wedding-info">
+                        <p class="wedding-name">Reception</p>
+                        <!-- <p class="wedding-date">Aug 8, 2024</p> -->
+                    </div>
+                </div>
+                <div class="wedding-card">
+                    <img src="https://i.postimg.cc/T27z47VH/AR209395-copy.webp" alt="Kiara & Siddharth">
+                    <div class="wedding-info">
+                        <p class="wedding-name">Pre shoot</p>
+                        <!-- <p class="wedding-date">Apr 24, 2024</p> -->
+                    </div>
+                </div>
+            </div>
+            <a href="photography.html" class="photography-blog-button">Photography Blog</a>
+        </div>
+            </section>
+        <section class="storytelling-section">
+            <img src="https://i.postimg.cc/QCmx2pqJ/25.webp" alt="Storytelling Logo" class="storytelling-logo">
+            <p class="storytelling-intro">
+                Every smile, every tear, every glance—we believe your story deserves to be told beautifully. With over 12 years of expertise, ARNI Photography transforms fleeting moments into timeless treasures through our signature blend of candid photography and cinematic videography.
+            </p>
+            </section>
+        <section class="selected-weddings">
+            <div class="weddings-intro">
+                <h1 class="h1">Capturing Moments. Creating Memories.</h1>
+                <p class="para">At ARNI Photography, we don’t just take pictures—we create experiences.With cutting-edge equipment, cinematic editing, and a client-first approach, we ensure comfort, confidence, and satisfaction at every step.</p>
+            </div>
+            <div class="weddings-video-grid">
+                <div class="wedding-video-placeholder"><img src="https://i.postimg.cc/zfB12sLv/AR205980.jpg" alt="photo"></div>
+                <div class="wedding-video-placeholder"><img src="https://i.postimg.cc/26x0NMRL/DSC06422.webp" alt="photo"></div>
+                <div class="wedding-video-placeholder"><img src="https://i.postimg.cc/k4PHmW2z/19.webp" alt="photo"></div>
+                <div class="wedding-video-placeholder"><img src="https://i.postimg.cc/8zKfJVMm/4.webp" alt="photo"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="landscape-video ">
+                <video autoplay muted loop playsinline>
+                    <source src="/video/landscape4.mp4" type="video/mp4">
+                </video>
+                <div class="content ibtida-description">
+                    <p>Your wedding is not just an event—it’s the beginning of a lifetime of memories. <br> We make sure every frame speaks of love, laughter, and legacy.</p>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+        <footer class="footer-section">
+            <div class="footer-content">
+                <div class="footer-col footer-col-1">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                        </a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+                <div class="footer-col footer-col-3">
+                    <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlide(slideIndex);
+
+        function showSlide(index) {
+            const slides = document.getElementsByClassName("carousel-image");
+            if (index >= slides.length) {
+                slideIndex = 0;
+            }
+            if (index < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex].classList.add("active");
+        }
+
+        function changeSlide(direction) {
+            slideIndex += direction;
+            showSlide(slideIndex);
+        }
+
+        // Optional: Auto slide every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+    
+            document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const nav = document.querySelector(".navigation");
+
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("active");
+            });
+            });
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

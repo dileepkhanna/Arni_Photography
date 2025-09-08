@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reception</title>
+  <link rel="stylesheet" href="styles.css">
+
+<style>
+    
+/* .parent */
+ .parent { 
+         display: grid;
+         grid-template-columns: repeat(5, 1fr);
+         grid-template-rows: repeat(11, 1fr);
+         gap: 12px;
+         margin-top: 50px;
+         margin-left: 160px;
+         width: 1200px; /* ✅ fixed width */
+         height: 2500px; /* ✅ fixed height */ 
+         overflow: hidden; /* or auto if you want scrollbars */ 
+    }
+    
+    .div1 {
+        grid-column: span 2 / span 2;
+        grid-row: span 4 / span 4;
+    }
+
+    .div2 {
+        grid-column: span 2 / span 2;
+        grid-row: span 6 / span 6;
+        grid-column-start: 4;
+        grid-row-start: 1;
+    }
+
+    .div3 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+        grid-row-start: 1;
+    }
+
+    .div4 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 3;
+        grid-row-start: 4;
+    }
+
+    .div5 {
+        grid-column: span 2 / span 2;
+        grid-row: span 3 / span 3;
+        grid-row-start: 5;
+        display:inline-block;
+    }
+
+    .div6 {
+        grid-column: span 3 / span 3;
+        grid-row: span 6 / span 6;
+        grid-column-start: 2;
+        grid-row-start: 8;
+    }
+
+    .div7 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 5;
+        grid-row-start: 7;
+    }
+
+    .div8 {
+        grid-row: span 3 / span 3;
+        grid-row-start: 9;
+    }
+    .div10 {
+        grid-column: span 4 / span 4;
+        grid-row: span 7 / span 7;
+        grid-column-start: 2;
+    }
+    .div10 {
+        grid-column: span 2 / span 2;
+        grid-row: span 4 / span 4;
+    }
+    .div11 {
+        grid-column: span 3 / span 3;
+        grid-row: span 4 / span 4;
+        grid-column-start: 3;
+    }
+      
+    .main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      margin-top: 20px;
+    }
+    .main-img:hover {
+      transform: scale(1.02);
+    }
+    .main-content {
+      margin-top: 125px;
+      padding: 4rem;
+      text-align: center;
+      line-height: 0.5;
+    }
+    
+    h1{
+        font-size: 80px;
+        font-size: clamp(2rem, 6vw, 4rem); 
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    hr{
+         border: 3px dotted black;
+         border-radius: 5px;
+    }
+    
+    /* Mobile Adjustments from original file (will be overridden by responsive.css below) */
+    @media (max-width: 1024px) {
+      .parent {
+        grid-template-columns: repeat(auto-fit, minmax(1, 1fr));
+        max-width:300px;
+        height: 600vh;
+      }
+    }
+
+    @media (max-width: 768px) {
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      
+      .parent {
+        grid-template-columns: 1fr; /* single column on mobile */
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 1400px) {
+      .parent {
+        width: min(var(--page-max), 100%);
+        margin-left: auto;
+        margin-right: auto;
+        height: auto; /* override fixed height to allow content to grow */
+      }
+    }
+
+    /* Consolidate to 4 columns and release manual placements */
+    @media (max-width: 1200px) {
+      .parent {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: none; /* remove fixed rows */
+        grid-auto-rows: auto;
+        grid-auto-flow: row dense; /* pack items nicely */
+      }
+      .parent > div {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        display: block; /* neutralize inline-blocks on grid items */
+      }
+      .main-img { height: auto; }
+
+    }
+    
+    /* 3 columns (landscape tablets) */
+    @media (max-width: 1024px) {
+      .parent {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 100px;
+      }
+    }
+
+    /* Mobile navigation behavior (scoped to small screens) */
+    
+
+    /* 2 columns (portrait tablets / large phones) */
+    @media (max-width: 768px) {
+      .parent { grid-template-columns: repeat(2, 1fr); }
+      
+      /* Footer stacks on small screens without touching desktop styles */
+      .footer-content { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    /* Single column (mobile) */
+    @media (max-width: 480px) {
+      .parent { grid-template-columns: 1fr; }
+      p { font-size: 1rem; }
+    }
+
+
+
+</style>
+</head>
+<body>
+<div class="main-container">
+    <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+<main class="main-content">
+    <div>
+        <h1 >Reception</h1>
+        <p>
+        From elegant entrances to heartfelt 
+        celebrations,our reception photography beautifully captures 
+        the charm, joy, and everlasting memories of your special evening</p>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <hr>
+    <div class="parent ">
+    <div class="div1 ">
+      <img class="main-img" src="https://i.postimg.cc/KcMW0GY4/DSC00172.webp" alt="">
+    </div>
+    <div class="div2">
+      <img class="main-img" src="https://i.postimg.cc/mrgqj7cG/AR201049.webp" alt="">
+    </div>
+    <div class="div3">
+      <img class="main-img" src="https://i.postimg.cc/wvPS73jY/79.webp" alt="">
+    </div>
+    <div class="div4">
+      <img class="main-img" src="https://i.postimg.cc/nh0SXM3S/DSC07403.webp" alt="">
+    </div>
+    <div class="div5">
+      <img class="main-img" src="https://i.postimg.cc/SNcwxS0H/AR200923.webp" alt="">
+    </div>
+    <div class="div6">
+      <img class="main-img" src="https://i.postimg.cc/hPR5wkJs/DSC04137.webp" alt="">
+    </div>
+    <div class="div7">
+      <img class="main-img" src="https://i.postimg.cc/MZCCwcLy/65.webp" alt="">
+    </div>
+    <div class="div8">
+      <img class="main-img" src="https://i.postimg.cc/CK2v4XTj/DSC08486.webp" alt="">
+    </div>
+    <div class="div9">
+      <img class="main-img" src="https://i.postimg.cc/PrbRkSYj/DSC04093.webp" alt="">
+    </div>
+     <div class="div10">
+      <img class="main-img" src="https://i.postimg.cc/zGj6TxGj/AR201042.webp" alt="">
+    </div>
+    <div class="div11">
+      <img class="main-img" src="https://i.postimg.cc/KYjqBFVG/DSC08554.webp" alt="">
+    </div>
+</div>
+</main>
+        
+
+
+ <footer class="footer-section">
+            <div class="footer-content">
+                <div class="footer-col footer-col-1">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                        </a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                    </div>
+                </div>
+                 <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+                <div class="footer-col footer-col-3">
+                    <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+                </div>
+            </div>
+        </footer>
+</div>
+    
+  <script src="script.js"></script>
+</body>
+</html>

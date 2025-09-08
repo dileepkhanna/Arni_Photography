@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="stylesheet" href="s">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+   
+    <style>
+        /* --- Base Styles & Variables --- */
+        
+         :root {
+            --color-background: #F0E9E0;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #000000;
+            --color-text-secondary: #585756;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        
+        body {
+            background-color: var(--color-background);
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
+            margin: 0;
+            line-height: 1.6;
+        }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); }
+        p { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+        /* --- Header --- */
+        
+       .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 1);
+    position: absolute; /* or fixed if you want sticky */
+    top: 0;
+    left: 0;  /* full width */
+    width: 100%; /* full width */
+    z-index: 10;
+    box-sizing: border-box; /* include padding in width */
+}
+
+
+            .logo img {
+            height: 80px;
+            width: auto;
+            }
+
+            .navigation {
+            display: flex;
+            gap: 25px;
+            }
+
+            .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            }
+
+            .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            }
+
+            .social-icons-header {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            }
+
+            /* ----------------------------
+            Responsive Navigation
+            ---------------------------- */
+
+            /* Hamburger button */
+            .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+
+            }
+
+            .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: rgb(255, 255, 255);
+            border-radius: 2px;
+            }
+
+
+            /* Mobile */
+            @media (max-width: 768px) {
+            .navigation {
+                display: none;
+                flex-direction: column;
+                gap: 20px;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                text-align: center;
+            }
+
+            .navigation.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .header-actions {
+                display: none; /* hide icons + button on small screens */
+            }
+            }
+
+            .get-in-touch-button{
+                padding: 12px 24px;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                background: #736645;
+               
+            }
+
+            /* Extra small screens */
+            @media (max-width: 480px) {
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-item {
+                font-size: 0.9rem;
+            }
+            }
+
+        /* --- Main Content & Gallery --- */
+        
+        .main-container {
+            margin-top: 100px;
+            max-width: 1400px;
+            
+            padding: 2rem 1.5rem;
+        }
+        
+        .filter-bar {
+            text-align: center;
+            margin: 1.5rem 0 3rem 0;
+            color: var(--color-text-secondary);
+        }
+        
+        .filter-button {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .filter-button.active,
+        .filter-button:hover {
+            color: var(--color-text-primary);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .portfolio-slider-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .portfolio-slider {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            max-width: 1100px;
+            flex: 1 1 auto;
+            position: relative;
+            scroll-behavior: smooth;
+            align-items: stretch;
+            /* Ensure all cards are same height */
+            /* Remove transform animation for all-visible mode */
+            transform: none !important;
+        }
+        
+        .portfolio-card {
+            min-width: 340px;
+            max-width: 340px;
+            margin: 0 1rem;
+            flex-shrink: 0;
+            background-color: var(--color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 1;
+            height: 100%;
+            /* Make all cards same height as slider */
+        }
+        
+        .portfolio-card.slider-hidden {
+            /* No hiding, all cards are visible */
+            opacity: 1;
+            pointer-events: auto;
+            transform: none;
+        }
+        
+        .card-image-wrapper {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+        }
+        
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;          /* cover = fill frame & crop, contain = fit fully */
+            object-position: center;    /* adjust focal point */
+            display: block;
+            image-rendering: auto;
+            
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
+        
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
+        }
+        
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .card-footer .read-more {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* Remove absolute positioning for better vertical alignment */
+        }
+        
+        .slider-btn:hover {
+            background: #000;
+        }
+        
+        .slider-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+        /* Hide scrollbars for slider */
+        
+        .portfolio-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+
+
+        /* --- Footer --- */
+        
+        .footer-section {
+            padding: 60px 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* --- ADDED: Rule for footer logo spacing --- */
+        
+        .footer-section .logo {
+            margin-bottom: 20px;
+        }
+        /* --- REMOVED: Unused .footer-logo rule --- */
+        
+        .footer-col-1 .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-col-1 .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .footer-col-2 {
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .footer-col-3 {
+            text-align: right;
+        }
+        
+        .footer-locations,
+        .footer-privacy,
+        .footer-contact {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+        
+        .footer-privacy {
+            margin-top: 15px;
+        }
+        /* Responsive: allow horizontal scroll on small screens */
+        
+        @media (max-width: 1000px) {
+            .portfolio-slider {
+                max-width: 700px;
+            }
+            .portfolio-card {
+                min-width: 300px;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            .portfolio-slider {
+                max-width: 400px;
+            }
+            .portfolio-card {
+                min-width: 240px;
+                max-width: 240px;
+            }
+            .card-content {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        }
+        /* ✅ Responsive Footer */
+        @media (max-width: 900px) {
+        .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: unset;
+            width: 100%;
+        }
+
+        .footer-col-3 {
+            text-align: center;
+        }
+        .social-icons {
+            justify-content: center;
+        }
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+
+    <main class="main-container">
+        <div class="filter-bar">
+            <span>Select:</span>
+            <button class="filter-button active" data-filter="all">All</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Baby_shoot">Baby Shoot</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Born_baby">Born Baby</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Engagement">Engagement</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Haldi">haldi</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Maternity">Maternity</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Preshoot">Pre Shoot</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Reception">Reception</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Wedding">wedding</button>
+            <span>|</span>
+            <button class="filter-button" data-filter="Seemantham">Seemantham</button>
+        </div>
+
+        <!-- Slider container replaces portfolio-grid -->
+        <div class="portfolio-slider-wrapper">
+            <button class="slider-btn slider-btn-prev">&#10094;</button>
+            <div class="portfolio-slider" id="portfolio-slider">
+                <!-- Slides will be injected here -->
+            </div>
+            <button class="slider-btn slider-btn-next">&#10095;</button>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+            </div>
+             <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+            <div class="footer-col footer-col-3">
+                <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data for the portfolio items
+            const portfolioData = [{
+                title: 'Baby Shoot',
+                description: 'Celebrate the innocence and joy of your little one with our baby photograpy capturing  tender smiles, tiny details, and timeless memories in every frame.',
+                image: 'https://i.postimg.cc/5ynNh42Y/new-modify-11.webp',
+                tags: ['Baby_shoot'],
+                link:'Baby_shoot.html'
+            }, {
+                title: 'Born Baby',
+                description: 'Welcome your little one with our born baby photography — capturing the innocence, purity, and first precious moments of life in timeless frames',
+                image: 'https://i.postimg.cc/8C2HvDD6/AR207166.webp',
+                tags: ['Born_baby'],
+                link:'Born_baby.html'
+            }, {
+                title: 'Engagement',
+                description: 'Celebrate the promise of forever with our engagement photography — capturing romantic moments, joyful smiles, and the beginning of your beautiful journey together',
+                image: 'https://i.postimg.cc/T1FYdknf/DSC01682.webp',
+                tags: ['Engagement'],
+                link:'Engagement.html'
+            }, {
+                title: 'Haldi',
+                description: 'Bright, joyful, and full of golden hues  our Haldi photography captures the laughter,rituals, and vibrant moments that mark the beginning of your wedding celebrations.',
+                image: 'https://i.postimg.cc/k4PHmW2z/19.webp',
+                tags: ['Haldi'],
+                link:'Haldi.html'
+            }, {
+                title: 'Maternity',
+                description: 'Celebrate the beauty of motherhood  with our maternity photography — capturing the glow,grace, and emotions of this precious journey into parenthood.',
+                image: 'https://i.postimg.cc/1XknCRCG/AR202660.webp',
+                tags: ['Maternity'],
+                link:'Maternity.html'
+            }, {
+                title: 'Preshoot',
+                description: 'Celebrate your love story with our  pre-wedding photography — capturing candid moments, romantic vibes, and timeless memories before the big day.',
+                image: 'https://i.postimg.cc/Y92PXYhH/AR209866-copy.webp',
+                tags: ['Preshoot'],
+                link:'Preshoot.html'
+            }, {
+                title: 'Reception',
+                description: 'From elegant entrances to heartfelt  celebrations,our reception photography beautifully captures  the charm, joy, and everlasting memories of your special evening',
+                image: 'https://i.postimg.cc/cCnPYZvg/78.webp',
+                tags: ['Reception'],
+                link:'Reception.html'
+            },{
+                title: 'Wedding',
+                description: 'From sacred rituals to heartfelt emotions, our wedding photography beautifully captures every precious moment of your big day as timeless memories.',
+                image: 'https://i.postimg.cc/hPWc4ZYZ/AR203681.jpg',
+                tags: ['Wedding'],
+                link:'wedding.html'
+            }, {
+                title: 'Seemantham',
+                description: 'Celebrate the joy of motherhood with our Seemantham photography — capturing rituals, blessings, and the radiant glow of this cherished tradition.',
+                image: 'https://i.postimg.cc/fLj9bSKJ/DSC06999.jpg',
+                tags: ['Seemantham'],
+                link:'Seemantham.html'
+            }
+
+        ];
+
+
+        const galleryContainer = document.getElementById('portfolio-gallery');
+const sliderContainer = document.getElementById('portfolio-slider');
+const prevBtn = document.querySelector('.slider-btn-prev');
+const nextBtn = document.querySelector('.slider-btn-next');
+let filteredItems = [];
+let autoSlideInterval = null;
+
+function renderSlider(filter) {
+    sliderContainer.innerHTML = '';
+    filteredItems = portfolioData.filter(item => {
+        if (filter === 'all') return true;
+        return item.tags.includes(filter);
+    });
+    filteredItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'portfolio-card';
+        const tagString = item.tags.map(tag => tag.charAt(0).toUpperCase() + tag.slice(1)).join(', ');
+        card.innerHTML = `
+            <div class="card-image-wrapper">
+                <img src="${item.image}" alt="${item.title}">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">${item.title}</h3>
+                <p class="card-description">${item.description}</p>
+                <div class="card-footer">
+                    <span>${tagString}</span>
+                    <a href="${item.link}" class="read-more">Read More →</a>
+                </div>
+            </div>
+        `;
+        sliderContainer.appendChild(card);
+    });
+
+    // Reset scroll
+    sliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+    updateSliderButtons();
+    restartAutoSlide();
+}
+
+function updateSliderButtons() {
+    prevBtn.disabled = sliderContainer.scrollLeft <= 0;
+    const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth - 2;
+    nextBtn.disabled = sliderContainer.scrollLeft >= maxScroll;
+}
+
+prevBtn.addEventListener('click', () => {
+    sliderContainer.scrollBy({
+        left: -360,
+        behavior: 'smooth'
+    });
+    restartAutoSlide();
+});
+
+nextBtn.addEventListener('click', () => {
+    sliderContainer.scrollBy({
+        left: 360,
+        behavior: 'smooth'
+    });
+    restartAutoSlide();
+});
+
+sliderContainer.addEventListener('scroll', updateSliderButtons);
+
+// Filter buttons
+const filterButtons = document.querySelectorAll('.filter-button');
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        renderSlider(filter);
+    });
+});
+
+// Auto-slide with smooth reset
+function autoSlide() {
+    if (sliderContainer.scrollWidth <= sliderContainer.clientWidth) return;
+    const maxScroll = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+    if (sliderContainer.scrollLeft < maxScroll - 10) {
+        sliderContainer.scrollBy({
+            left: 360,
+            behavior: 'smooth'
+        });
+    } else {
+        sliderContainer.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function restartAutoSlide() {
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(autoSlide, 3500);
+}
+
+renderSlider('all');
+        });
+        
+    </script>
+<script src="script.js"></script>
+</body>
+
+</html>

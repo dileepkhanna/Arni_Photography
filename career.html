@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Base Styles & Variables --- */
+        
+         :root {
+            --color-background: #F0E9E0;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #000000;
+            --color-text-secondary: #585756;
+            --color-text-light: #FFFFFF;
+            --color-accent: #736645;
+            --color-border: #A9A9A9;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+        
+        body {
+            background-color: var(--color-background);
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
+            margin: 0;
+            line-height: 1.6;
+        }
+        /* --- Header (Consistent with other pages) --- */
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 1);
+            position: absolute; /* or fixed if you want sticky */
+            top: 0;
+            left: 0;  /* full width */
+            width: 100%; /* full width */
+            z-index: 10;
+            box-sizing: border-box; /* include padding in width */
+        }
+
+
+            .logo img {
+            height: 80px;
+            width: auto;
+            }
+
+            .navigation {
+            display: flex;
+            gap: 25px;
+            }
+
+            .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            }
+
+            .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            }
+
+            .social-icons-header {
+            display: flex;
+            gap: 10px;
+            margin-top: 17x;
+            }
+
+            /* ----------------------------
+            Responsive Navigation
+            ---------------------------- */
+
+            /* Hamburger button */
+            .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+
+            }
+
+            .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: rgb(255, 255, 255);
+            border-radius: 2px;
+            }
+            .get-in-touch-button {
+                background: #736645;
+            }
+            .get-in-touch-button{
+                padding: 12px 24px;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                margin-right: 10px;
+            }
+
+
+            /* Mobile */
+            @media (max-width: 768px) {
+            .navigation {
+                display: none;
+                flex-direction: column;
+                gap: 20px;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                text-align: center;
+            }
+
+            .navigation.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .header-actions {
+                display: none; /* hide icons + button on small screens */
+            }
+            }
+
+            /* Extra small screens */
+            @media (max-width: 480px) {
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-item {
+                font-size: 0.9rem;
+            }
+            }
+
+        /* --- Hero Section --- */
+        
+           .landscape-video {
+                position: relative;   
+                width: 100%;
+                height: 80vh;
+                overflow: hidden;
+                background: black;    
+                }
+
+        .landscape-video video {
+                position: absolute; 
+                top: 0;
+                left: 0;
+                width: 101%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;          
+                }
+
+                @media (max-width: 992px) {
+    .landscape-video {
+        max-height: 60vh;
+    }
+    .landscape-video video {
+        max-height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .landscape-video {
+        max-height: 50vh;
+    }
+    .landscape-video video {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .landscape-video {
+        max-height: 40vh;
+    }
+    .landscape-video video {
+        max-height: 40vh;
+    }
+}
+
+        /* .landscape-video .content {
+                font-family: var(--font-display);
+                font-size: 3rem;
+                font-weight: 700;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+                position: relative;
+                z-index: 1;           
+                color: white;
+                text-align: center;
+                top:50% ;
+                } */
+        .hero-section {
+            margin-top:200px;
+            height: 50vh;
+            width: 99vw;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            text-align: center;
+        }
+        /* --- Main Content & Form --- */
+        
+        .main-container {
+            max-width: 800px;
+            margin: -80px auto 4rem auto;
+            /* Overlap hero */
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .form-intro {
+            background-color: var(--color-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-intro h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin: 0 0 1rem 0;
+        }
+        
+        .form-intro p {
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0.5rem auto;
+        }
+        
+        .form-intro ul {
+            list-style-type: '• ';
+            padding-left: 1.5rem;
+            text-align: left;
+            max-width: 500px;
+            margin: 1.5rem auto 0 auto;
+            color: var(--color-text-secondary);
+        }
+        
+        .career-form-wrapper {
+            background-color: var(--color-surface);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .form-group label span {
+            font-weight: 400;
+            color: var(--color-text-secondary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            background-color: #FAFAFA;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-button {
+            padding: 1rem 2rem;
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: var(--color-accent);
+        }
+        
+        #form-message {
+            margin-top: 1rem;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+            /* Hidden by default */
+        }
+        
+        #form-message.success {
+            background-color: #D4EDDA;
+            color: #155724;
+        }
+        
+        #form-message.error {
+            background-color: #F8D7DA;
+            color: #721C24;
+        }
+        /* --- Footer --- */
+        
+        .footer-section {
+            padding: 60px 40px;
+            background-color: #E6DCD1;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* --- ADDED: Rule for footer logo spacing --- */
+        
+        .footer-section .logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-col-1 .social-icons {
+            display: flex;
+            gap: 15px;
+            /* REMOVED: margin-top to avoid double spacing */
+        }
+        
+        .footer-col-1 .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .footer-col-2 {
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .footer-col-3 {
+            text-align: right;
+        }
+        
+        .footer-locations,
+        .footer-privacy,
+        .footer-contact {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        @media (max-width: 900px) {
+        .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: unset;
+            width: 100%;
+        }
+
+        .footer-col-3 {
+            text-align: center;
+        }
+        .social-icons {
+            justify-content: center;
+        }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+
+    <section class="hero-section">
+        <div class="landscape-video ">
+                <video autoplay muted loop playsinline>
+                    <source src="/video/landscape2.mp4" type="video/mp4">
+                </video>
+                 
+            </div>
+    </section>
+
+    <main class="main-container">
+        <div class="form-intro">
+            <h1>Join the Team.</h1>
+            <p>We are constantly on a lookout for extraordinary talents in both photography and film domain. Fill in the form below with your details and work links and we will get back to you if there is an opportunity matching your profile.</p>
+            <ul>
+                <li>All positions are full time for our Vishakapatnam Office.</li>
+                <li>Ensure you meet the experience criteria mentioned.</li>
+                <li>Link to your portfolio is a must.</li>
+            </ul>
+        </div>
+
+        <div class="career-form-wrapper">
+            <form id="career-form" class="form-grid" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name <span>(required)</span></label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name <span>(required)</span></label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span>(required)</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number <span>(required)</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Current City of Residence <span>(required)</span></label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="opening">Current Openings <span>(required)</span></label>
+                    <select id="opening" name="opening" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="photographer">Photographer (Min 3 years experience)</option>
+                        <option value="cinematographer">Cinematographer (Min 3 years experience)</option>
+                        <option value="editor">Video Editor (Min 4 years experience)</option>
+                        <option value="manager">Studio Manager (Min 2 years experience)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="about-you">Tell Us About Yourself <span>(required)</span></label>
+                    <textarea id="about-you" name="about-you" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="prof-portfolio">Link to your Professional Portfolio <span>(required)</span></label>
+                    <input type="url" id="prof-portfolio" name="prof-portfolio" placeholder="https://..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="personal-portfolio">Link to your Personal Portfolio</label>
+                    <input type="url" id="personal-portfolio" name="personal-portfolio" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="relocate">Open to relocate to Vishakapatnam? <span>(required)</span></label>
+                    <select id="relocate" name="relocate" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="maybe">Maybe</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" class="submit-button">Send Application</button>
+                    <div id="form-message"></div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+            </div>
+             <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+            <div class="footer-col footer-col-3">
+                <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('career-form');
+            const formMessage = document.getElementById('form-message');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default submission
+
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#721C24'; // Red border
+                    } else {
+                        field.style.borderColor = 'var(--color-border)'; // Reset border
+                    }
+                });
+
+                const emailField = document.getElementById('email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailField.value.trim())) {
+                    isValid = false;
+                    emailField.style.borderColor = '#721C24';
+                }
+
+                formMessage.style.display = 'block';
+
+                if (isValid) {
+                    formMessage.textContent = 'Thank you! Your application has been submitted.';
+                    formMessage.className = 'success';
+                    form.reset();
+                    requiredFields.forEach(field => field.style.borderColor = 'var(--color-border)');
+                } else {
+                    formMessage.textContent = 'Please fill out all required fields correctly.';
+                    formMessage.className = 'error';
+                }
+            });
+        });
+    </script>
+     <script>
+        document.getElementById("career-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const firstName = document.getElementById("first-name").value;
+            const lastName = document.getElementById("last-name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const city = document.getElementById("city").value;
+            const opening = document.getElementById("opening").value;
+            const aboutYou = document.getElementById("about-you").value;
+            const profPortfolio = document.getElementById("prof-portfolio").value;
+            const personalPortfolio = document.getElementById("personal-portfolio").value || "Not provided";
+            const relocate = document.getElementById("relocate").value;
+
+                // Format message
+                const message = `New Application:\n
+            Name: ${firstName} ${lastName}
+            Email: ${email}
+            Contact: ${phone}
+            City: ${city}
+            Opening: ${opening}
+            About: ${aboutYou}
+            Professional Portfolio: ${profPortfolio}
+            Personal Portfolio: ${personalPortfolio}
+            Relocate: ${relocate}`;
+
+                
+                const phoneNumber = "918008948977"; 
+
+                // Open WhatsApp
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+});
+</script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

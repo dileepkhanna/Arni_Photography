@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Minimal custom CSS needed */
+        
+        body {
+            background-color: #F0E9E0;
+            font-family: 'Inter', sans-serif;
+            color: #000000;
+        }
+        
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo img {
+        height: 80px;
+        width: auto;
+        }
+        
+        @media (max-width: 900px) {
+        .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+        }
+        
+
+        .footer-col {
+            flex: unset;
+            width: 100%;
+        }
+        .footer-col-1 {
+            text-align: center;
+        }
+
+        .footer-col-3 {
+            text-align: center;
+        }
+        .social-icons {
+            justify-content: center;
+        }
+        }
+     
+    </style>
+</head>
+
+<body>
+
+    <!-- <header class="flex justify-between items-center py-5 px-10 bg-black text-gray-200">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" class="h-20 w-auto" />
+            </a>
+        </div>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="photography.html" class="hover:opacity-80 transition-opacity">Photography</a>
+            <a href="films.html" class="hover:opacity-80 transition-opacity">Films</a>
+            <a href="contact-us.html" class="hover:opacity-80 transition-opacity">Contact Us</a>
+            <a href="editorial.html" class="hover:opacity-80 transition-opacity">Editorial</a>
+            <a href="career.html" class="hover:opacity-80 transition-opacity">Careers</a>
+        </nav>
+        <div class="flex items-center gap-5">
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+            </div>
+            <a href="contact-us.html" class="get-in-touch-button">Get In Touch</a>
+        </div>
+    </header> -->
+     <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+    <div class="bg-black py-32 text-center text-gray-200">
+        <div class="container mx-auto px-4">
+            <h1 class="font-playfair text-5xl italic">Inspired by Cinema.</h1>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- <nav class="flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-8 gap-y-4 mb-12 text-sm">
+            <button data-filter="all" class="active font-bold px-4 py-2 rounded-lg">All</button>
+            <span class="text-gray-400">|</span>
+            <button data-filter="classic" class="hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors">Classic Story Telling</button>
+            <span class="text-gray-400">|</span>
+            <button data-filter="modern" class="hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors">New Age Modern</button>
+            <span class="text-gray-400">|</span>
+            <button data-filter="intimates" class="hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors">Intimates</button>
+        </nav> -->
+
+        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        </div>
+    </main>
+
+    <footer class="footer-section">
+            <div class="footer-content">
+                <div class="footer-col footer-col-1">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                        </a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                        <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+                <div class="footer-col footer-col-3">
+                    <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+                    
+                </div>
+            </div>
+        </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryData = [{
+                image: './video/v1.mp4',
+                category: 'classic',
+                date: '4/9/25',
+                title: 'Varun and Lavanya, Italy',
+                description: ''
+            }, {
+                image: './video/v12.mp4',
+                category: 'modern',
+                date: '1/5/25',
+                title: 'Reva and Zach // A House On The Clouds Film',
+                description: 'Exactly today last year we celebrated Reva and Zach’s wedding. We called it our Happy New Year wedding and rightfully so.'
+            }, {
+                image: './video/video1.mp4',
+                category: 'modern',
+                date: '11/20/24',
+                title: 'Vedika and Omair // Jaisalmer',
+                description: 'Vedika and Omair gave a new meaning to the concept of “do as ye will”. It felt like a ceremony of ethereal beings.'
+            }, {
+                image: './video/v2.mp4',
+                category: 'modern',
+                date: '11/28/24',
+                title: 'Sangeeta and Jake, France',
+                description: 'No matter how well we write we won’t be able to justify the experience of shooting this wedding. Epic, soulful, and heartfelt.'
+            }, {
+                image: './video/v4.mp4',
+                category: 'classic',
+                date: '11/1/24',
+                title: 'Chitralekha and Holm, Jaipur',
+                description: 'Sometimes, in all our lives, comes a connection so profound that makes all of our sufferings and rock bottoms worth it. '
+            }, {
+                image: './video/video2.mp4',
+                category: 'classic',
+                date: '11/5/24',
+                title: 'Saira and Jashan, Arizona',
+                description: 'If we as filmmakers were going through a surge of emotions, we can only imagine the intensity the family was going through.'
+            }, {
+                image: './video/v3.mp4',
+                category: 'modern',
+                date: '2/18/24',
+                title: 'Stefanie Akshay, Tuscany',
+                description: 'Ah ah already loved you. Ah ah already loved you. - Stef’s song for Akshay.'
+            }, {
+                image: './video/v5.mp4',
+                category: 'modern',
+                date: '2/8/24',
+                title: 'Tamanna and Dan, Tuscany',
+                description: 'Last year has been extraordinary for us and we can’t help thank our stars enough for giving us experiences that will remain with us forever.'
+            }, 
+         ];
+
+            const galleryContainer = document.getElementById('gallery');
+            const filterButtons = document.querySelectorAll('nav button');
+
+            function renderGallery(filter = 'all') {
+                galleryContainer.innerHTML = '';
+                const filteredData = filter === 'all' ?
+                    galleryData :
+                    galleryData.filter(item => Array.isArray(item.category) ? item.category.includes(filter) : item.category === filter);
+
+                filteredData.forEach(item => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'flex flex-col bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:transform hover:-translate-y-1';
+
+                    let categoryText = Array.isArray(item.category) ? item.category.join(', ') : item.category;
+                    categoryText = categoryText.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+
+                    /*
+                        --- JAVASCRIPT CORRECTION ---
+                        The <img> tag is now wrapped in a div with a fixed height (h-64).
+                        The image itself uses h-full and object-cover to fill this wrapper.
+                        This ensures every card has an identically sized image area, fixing the alignment issues.
+                    */
+                    galleryItem.innerHTML = `
+                        <div class="h-64 overflow-hidden">
+                            <video class="w-full h-full object-cover"  autoplay muted loop>
+                                <source src="${item.image}" type="video/mp4">
+                            </video>
+                        </div>
+                        `;
+                    galleryContainer.appendChild(galleryItem);
+                });
+                // <div class="p-4 flex flex-col flex-grow">
+                //             <p class="font-poppins text-xs text-gray-600">${categoryText} • ${item.date}</p>
+                //             <h3 class="font-playfair text-xl my-1 flex-grow">${item.title}</h3>
+                //             <p class="text-sm text-gray-700">${item.description}</p>
+                //         </div>
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'font-bold'));
+                    button.classList.add('active', 'font-bold');
+                    const filter = button.dataset.filter;
+                    renderGallery(filter);
+                });
+            });
+
+            renderGallery();
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>

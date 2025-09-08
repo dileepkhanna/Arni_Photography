@@ -1,0 +1,905 @@
+/* styles.css */
+
+
+/* --- Basic Reset & Body --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #333;
+    /* Dark background for contrast */
+    color: #333;
+}
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* --- Main Container --- */
+
+
+/* This wrapper centers the design */
+
+.main-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #F0E9E0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.content-area {
+    width: 100%;
+    padding: 0 40px;
+    /* Add some horizontal padding */
+}
+
+
+/* --- Section Styling --- */
+
+section {
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* --- Header & Navigation --- */
+
+
+
+/* Existing Header Styles (yours) */
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background:black; /* or fixed if you want sticky */
+    top: 0;
+    left: 0;  /* full width */
+    width: 100%; /* full width */
+    z-index: 10;
+    box-sizing: border-box; /* include padding in width */
+}
+.logo img {
+  height: 80px;
+  width: auto;
+}
+.navigation {
+  display: flex;
+  gap: 25px;
+}
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-icons-header {
+  display: flex;
+  gap: 10px;
+}
+
+/* ----------------------------
+   Responsive Navigation
+---------------------------- */
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0,0.7);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .header-actions {
+    display: none; /* hide icons + button on small screens */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+  }
+  .main-content {
+        margin-top: 120px;
+      }
+}
+
+/* --- Button Styles --- */
+
+.get-in-touch-button,
+.watch-films-button,
+.ibtida-button,
+.photography-blog-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.get-in-touch-button {
+    background: #736645;
+}
+
+.watch-films-button {
+    background: #B49E64;
+    margin-top: 40px;
+}
+
+.ibtida-button {
+    background: #A18E5E;
+    margin-top: 30px;
+}
+
+.photography-blog-button {
+    background: #B49E64;
+    margin-top: 40px;
+}
+
+
+
+.about-hotc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-top: 0px;
+}
+
+/* --- Image Wrappers --- */
+.about-hotc-image-left,
+.about-hotc-image-right {
+    flex: 1 1 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hotc-image-left img,
+.about-hotc-image-right img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.about-hotc-image-left img{
+    margin-top: 300px;
+}
+.about-hotc-image-right img{
+    margin-bottom: 100px;
+}
+/* --- Content --- */
+.about-hotc-content {
+    flex: 2 1 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    
+}
+
+/* --- Heading --- */
+/* .about-hotc-content h1 {
+    font-size: clamp(22px, 5vw, 60px);
+    font-family: "Meie Script", cursive;
+    font-weight: 600;
+    color: #222;
+   
+} */
+.left_h1{
+  
+    padding-right: 110px;
+}
+.right_h1{
+  
+    padding-left: 110px;
+}
+
+/* --- Paragraphs --- */
+.about-hotc-content p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: #736645;
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-hotc-description,
+.about-hotc-awards {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+/* --- Tablet & Mobile Adjustments --- */
+@media (max-width: 992px) {
+    .about-hotc {
+        flex-direction: column; /* stack vertically */
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* ✅ Content comes first */
+    .about-hotc-content {
+        order: 1;
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-hotc-content p {
+        text-align: center;
+    }
+
+    .about-hotc-image-left {
+        order: 2;
+    }
+
+    .about-hotc-image-right {
+        order: 3;
+    }
+    .about-hotc-image-left img{
+    margin-top: 0px;
+    }
+    .about-hotc-image-right img{
+        margin-bottom: opx;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hotc {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .about-hotc-content h1 {
+        font-size: clamp(20px, 6vw, 32px);
+    }
+
+    .about-hotc-content p {
+        font-size: 14px;
+    }
+
+    .about-hotc-image-left img,
+    .about-hotc-image-right img {
+        max-width: 280px;
+    }
+    .about-hotc-image-left img{
+    margin-top: 0px;
+    }
+    .about-hotc-image-right img{
+        margin-bottom: opx;
+    }
+}
+
+
+
+
+/* --- Image Gallery Grid --- */
+.h1{
+    /* font-size: 50px; */
+    font-size: clamp(24px, 5vw, 50px); /* responsive font */
+    font-weight: 500;
+    font-family:"Montserrat", sans-serif;
+    text-align: center;
+    
+    z-index: 1;
+   
+}
+
+.para{
+    font-size: clamp(16px, 2.5vw, 25px); /* responsive font */
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 10px;
+    /* font-size: 25px; */
+
+    font-family:"Montserrat", sans-serif;
+    
+    text-align: center;
+
+    z-index: 1;
+   
+    
+}
+.image-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding:  8px;
+    
+}
+
+.image-gallery-grid img {
+    width:100%;
+    height: 350;
+    
+    display: block;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* --- Recent Weddings Section --- */
+
+/* --- Section Headings --- */
+.pre {
+    font-size: clamp(1.8rem, 4vw, 3.5rem); /* scales by screen */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    margin-top: 0px;
+    margin: auto;
+    max-width: 90%;
+    white-space: normal; /* allow wrapping */
+}
+
+.para {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: #444;
+    margin: 0 auto 40px auto;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* --- Recent Weddings Section --- */
+.recent-weddings {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.recent-weddings-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.wedding-card {
+    text-align: center;
+}
+
+.wedding-card img {
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.wedding-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.wedding-date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.photography-blog-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.photography-blog-button:hover {
+    background: #444;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+    .pre {
+        font-size: 2.2rem;
+    }
+
+    .para {
+        font-size: 1.1rem;
+    }
+
+    .recent-weddings-content {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+    .pre {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .para {
+        font-size: 1rem;
+        max-width: 95%;
+    }
+
+    .recent-weddings-content {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
+
+    .wedding-card img {
+        max-height: 360px; /* smaller for mobile */
+    }
+}
+
+
+/* @media (max-width: 768px) {
+    .pre {
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .para {
+        
+        text-align: center;
+
+    }
+
+    .image-gallery-grid img {
+        height: 220px; 
+    }
+
+    .wedding-card img {
+        height: 250px;
+    }
+} */
+
+
+
+
+
+.storytelling-section {
+    background-color: #000;
+    color: #fffafa;
+    min-height: 500px;
+    text-align: center; /* ✅ center-align content */
+    padding: 60px 20px; /* ✅ spacing inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.storytelling-section img {
+    width: 577px;
+    height: 220px;
+    object-position:bottom;
+    object-fit: cover;
+}
+
+.storytelling-intro {
+    max-width: 800px;
+    line-height: 1.8;
+    font-size: clamp(1rem, 2.5vw, 1.3rem); /* ✅ responsive text */
+    padding: 0 15px;
+}
+
+/* --- Tablet (≤ 1024px) --- */
+@media (max-width: 1024px) {
+    .storytelling-section {
+        padding: 50px 15px;
+    }
+
+    .storytelling-intro {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Mobile (≤ 768px) --- */
+@media (max-width: 768px) {
+    .storytelling-section {
+        padding: 40px 10px;
+    }
+
+    .storytelling-section img {
+        max-width: 350px; /* ✅ smaller logo */
+    }
+
+    .storytelling-intro {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 95%;
+    }
+}
+
+
+
+/* --- Award Winning Films Section --- */
+
+.films-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.film-card-large img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.films-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+}
+
+.film-item {
+    text-align: left;
+}
+
+.film-video-placeholder {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.film-video-placeholder img {
+    width: 100%;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.film-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.film-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+/* --- Selected Weddings Section --- */
+
+/* --- Section Background --- */
+.selected-weddings {
+  background-color: #EAE3D9;
+ padding: 40px;
+  text-align: center;
+}
+
+/* --- Intro Text --- */
+.weddings-intro {
+  max-width: 950px;
+  margin: 0 auto 40px auto;
+  line-height: 1.7;
+}
+
+.weddings-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.weddings-intro p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* --- Grid Layout --- */
+.weddings-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Desktop: 2 equal columns */
+  gap: 5px;
+  width: 100%;
+  max-width: 1440px;
+
+}
+
+/* --- Image Styling --- */
+.wedding-video-placeholder img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px; /* keep images aligned */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.wedding-video-placeholder:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Tablet View --- */
+@media (max-width: 1024px) {
+  .weddings-intro h1 {
+    font-size: 2rem;
+  }
+
+  .weddings-intro p {
+    font-size: 1rem;
+  }
+
+  .weddings-video-grid {
+    grid-template-columns: 1fr 1fr; /* still 2 columns on tablet */
+  }
+
+  .wedding-video-placeholder img {
+    max-height: 320px; /* adjust height for tablets */
+  }
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+  .weddings-intro h1 {
+    font-size: 1.6rem;
+  }
+
+  .weddings-intro p {
+    font-size: 0.95rem;
+  }
+
+  .weddings-video-grid {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+
+  .wedding-video-placeholder img {
+    max-height: 260px; /* reduce height for mobile */
+  }
+}
+
+
+
+
+
+
+/* --- Ibtida Section --- */
+
+/* .ibtida-section {
+    background: url('https://i.postimg.cc/257JF2jG/AR209823-copy.webp') no-repeat center center; 
+    background: url('https://i.postimg.cc/hv5NQv4q/AR205148.webp') no-repeat center center;
+    background-size: cover;
+    
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+} */
+/* .ibtida-content {
+    max-width: 500px;
+    background: rgba(240, 233, 224, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    margin-right:900px;
+} */
+
+/* .ibtida-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+*/
+/* --- Video Section --- */
+.landscape-video {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  background: black; 
+  display: flex;
+  align-items: center;      /* vertical center content */
+  justify-content: center;  /* horizontal center content */
+  text-align: center;
+}
+
+/* --- Video Styling --- */
+.landscape-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* --- Content Overlay --- */
+.landscape-video .content {
+  position: relative;
+  z-index: 1;
+  color: #ead9ae;
+  font-size: clamp(1.5rem, 2.5vw, 2rem); /* responsive font */
+  max-width: 90%;
+  line-height: 1.6;
+  padding: 20px;
+  top: 30%;
+}
+
+/* --- Tablet View --- */
+@media (max-width: 1024px) {
+  .landscape-video {
+    height: 70vh;
+  }
+
+  .landscape-video .content {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  }
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+  .landscape-video {
+    height: 60vh;
+  }
+
+  .landscape-video .content {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    padding: 10px;
+  }
+}
+
+
+/* --- Footer Section --- */
+
+.footer-section {
+    background-color: #EAE3D9;
+    padding: 60px 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col-1 {
+    flex-grow: 1;
+}
+
+.footer-col-2 {
+    flex-grow: 2;
+    text-align: center;
+}
+
+.footer-col-3 {
+    flex-grow: 1;
+    text-align: right;
+}
+
+
+/* --- IMPROVED: Rule to add correct spacing to footer logo --- */
+
+.footer-section .logo {
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-locations,
+.footer-privacy,
+.footer-contact {
+    line-height: 1.8;
+}
+
+.footer-privacy {
+    margin-top: 15px;
+}
+
+/* ✅ Responsive Footer */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  
+
+  .footer-col {
+    flex: unset;
+    width: 100%;
+  }
+  .footer-col-1 {
+    text-align: center;
+  }
+
+  .footer-col-3 {
+    text-align: center;
+  }
+ .social-icons {
+    justify-content: center;
+  }
+}

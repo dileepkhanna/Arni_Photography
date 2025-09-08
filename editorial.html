@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* --- Base Styles & Variables --- */
+        
+         :root {
+            --color-background: #F0E9E0;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #000000;
+            --color-text-secondary: #585756;
+            --color-background-rgb: 240, 233, 224;
+            --font-primary: 'Inter', sans-serif;
+            --grid-gap: 5px;
+        }
+        
+        body {
+            background-color: var(--color-background);
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
+            margin: 0;
+        }
+        /* --- Header (Consistent with other pages) --- */
+        
+        
+        /* --- CORRECTED: General Logo Sizing --- */
+        /* This rule now applies to the logo in both the header and footer */
+        
+      .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 1);
+            position: absolute; /* or fixed if you want sticky */
+            top: 0;
+            left: 0;  /* full width */
+            width: 100%; /* full width */
+            z-index: 10;
+            box-sizing: border-box; /* include padding in width */
+}
+
+
+        .logo img {
+        height: 80px;
+        width: auto;
+        }
+
+        .navigation {
+        display: flex;
+        gap: 25px;
+        }
+
+        .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        }
+
+        .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        }
+
+        .social-icons-header {
+        display: flex;
+        gap: 10px;
+        }
+
+        /* ----------------------------
+        Responsive Navigation
+        ---------------------------- */
+
+        /* Hamburger button */
+        .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+
+        }
+
+        .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: rgb(255, 255, 255);
+        border-radius: 2px;
+        }
+            .get-in-touch-button {
+                            background: #736645;
+        }
+        .get-in-touch-button{
+                padding: 12px 24px;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 400;
+                letter-spacing: 0.5px;
+                margin-right: 10px;
+       }
+
+
+
+        /* Mobile */
+        @media (max-width: 768px) {
+        .navigation {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navigation.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .header-actions {
+            display: none; /* hide icons + button on small screens */
+        }
+        }
+
+            /* Extra small screens */
+            @media (max-width: 480px) {
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-item {
+                font-size: 0.9rem;
+            }
+            }
+                    /* --- Main Content & Masonry Grid --- */
+                    
+                /* --- Main Content & Masonry Grid --- */
+            .main-container {
+            margin-top: 140px;
+            padding: 0 20px; /* spacing on smaller screens */
+            }
+
+            .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* auto-adjusts */
+            gap: 20px; /* consistent spacing */
+            }
+
+            .masonry-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ddd;
+            aspect-ratio: 1 / 1; /* keeps items square */
+            width: 100%; /* responsive width */
+            max-width: 500px; /* prevent too large on big screens */
+            margin: auto; /* centers in column */
+            }
+
+            .masonry-item img,
+            .masonry-item video,
+            .masonry-item iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            object-position: center;
+            }
+
+            /* Fine-tune responsiveness */
+            @media (max-width: 768px) {
+            .masonry-grid {
+                gap: 15px;
+            }
+            }
+
+            @media (max-width: 480px) {
+            .masonry-grid {
+                gap: 10px;
+            }
+            }
+
+        /* --- Footer (Consistent with other pages) --- */
+        
+        .footer-section {
+            padding: 60px 40px;
+            background-color: #E6DCD1;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* --- ADDED: Rule for footer logo spacing --- */
+        
+        .footer-section .logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-col-1 .social-icons {
+            display: flex;
+            gap: 15px;
+            /* REMOVED: margin-top to avoid double spacing */
+        }
+        
+        .footer-col-1 .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .footer-col-2 {
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .footer-col-3 {
+            text-align: right;
+        }
+        
+        .footer-locations,
+        .footer-privacy,
+        .footer-contact {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/arni_photography2.png" alt="Arni_Photography_Logo" />
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navigation">
+                <a href="photography.html" class="nav-item">Photography</a>
+                <a href="films.html" class="nav-item">Films</a>
+                <a href="contact-us.html" class="nav-item">Contact Us</a>
+                <a href="editorial.html" class="nav-item">Editorial</a>
+                <a href="career.html" class="nav-item">Careers</a>
+            </nav>
+            <div class="header-actions">
+                <div class="social-icons-header">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+                <button class="get-in-touch-button">Get In Touch</button>
+            </div>
+        </header>
+
+    <main class="main-container">
+        <div class="masonry-grid" id="masonry-gallery">
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-col footer-col-1">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/arni_photography3.png" alt="Arni_Photography_Logo" />
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/arniphotographyy/"><img src="img/instagram1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.facebook.com/Arunikitha/"><img src="img/facebook1.png" height="23" width="23" alt="Social Icon"></a>
+                    <a href="https://www.youtube.com/channel/UC4HWnC-vrF6Hq9urwDnnARA"><img src="img/youtube1.png" height="23" width="23" alt="Social Icon"></a>
+                </div>
+            </div>
+             <div class="footer-col footer-col-2">
+                    <p class="footer-locations">1st floor 106, 107, 107A right commercial space,<br> dutt island, above apollo pharmacy, <br>siripuram, visakhapatnam-530003</p>
+                    <!-- <p class="footer-privacy">Privacy Policy</p> -->
+                    
+                </div>
+            <div class="footer-col footer-col-3">
+                <p class="footer-contact">+91 8008948977<br>Arniconglomerate@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = [
+                "https://placehold.co/400x550", "https://placehold.co/400x600",
+                "https://placehold.co/400x500", "https://placehold.co/400x450",
+                "https://placehold.co/400x650", "https://placehold.co/400x520",
+                "https://placehold.co/400x480", "https://placehold.co/400x580",
+                "https://placehold.co/400x530", "https://placehold.co/400x470",
+                "https://placehold.co/400x620", "https://placehold.co/400x510",
+                "https://placehold.co/400x560", "https://placehold.co/400x490",
+                "https://placehold.co/400x540", "https://placehold.co/400x590"
+            ];
+
+            const gallery = document.getElementById('masonry-gallery');
+            const gridGap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--grid-gap'));
+
+            function resizeMasonryItem(item) {
+                const rowGap = gridGap;
+                const rowHeight = 0; // The grid-auto-rows is 0, so we calculate everything based on content
+                const rowSpan = Math.ceil((item.querySelector('img').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+                item.style.gridRowEnd = 'span ' + rowSpan;
+            }
+
+            function resizeAllMasonryItems() {
+                const allItems = gallery.querySelectorAll('.masonry-item');
+                allItems.forEach(resizeMasonryItem);
+            }
+
+            // Populate gallery and add listeners
+            images.forEach(src => {
+                const item = document.createElement('div');
+                item.className = 'masonry-item';
+                const img = document.createElement('img');
+                img.src = src;
+                img.onload = resizeAllMasonryItems; // Resize after each image loads
+                item.appendChild(img);
+                gallery.appendChild(item);
+            });
+
+            window.addEventListener('resize', resizeAllMasonryItems);
+        });
+    </script> -->
+    <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mediaFiles = [
+            "https://placehold.co/400x550", 
+            "https://placehold.co/400x600",
+            "https://www.w3schools.com/html/mov_bbb.mp4",
+            "https://drive.google.com/file/d/1RYTtpMT-4mdxTBdxhfS_o4pBJn6LZZUt/preview", // sample video
+            "https://placehold.co/400x500",
+            "https://placehold.co/400x450",
+            "https://placehold.co/400x650",
+            "https://www.w3schools.com/html/movie.mp4", // another video
+            "https://placehold.co/400x520",
+            ,
+
+        ];
+
+        const gallery = document.getElementById('masonry-gallery');
+        const gridGap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--grid-gap'));
+
+        function resizeMasonryItem(item) {
+            const rowGap = gridGap;
+            const rowHeight = 0;
+            const mediaEl = item.querySelector('img, video');
+
+            if (!mediaEl) return;
+
+            const height = mediaEl.getBoundingClientRect().height;
+            const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = 'span ' + rowSpan;
+        }
+
+        function resizeAllMasonryItems() {
+            const allItems = gallery.querySelectorAll('.masonry-item');
+            allItems.forEach(resizeMasonryItem);
+        }
+
+        // Populate gallery
+        mediaFiles.forEach(src => {
+            const item = document.createElement('div');
+            item.className = 'masonry-item';
+
+            let media;
+            if (src.match(/\.(mp4|webm|ogg)$/i)) {
+                media = document.createElement('video');
+                media.src = src;
+                media.controls = true;
+                media.onloadedmetadata = resizeAllMasonryItems;
+            } else {
+                media = document.createElement('img');
+                media.src = src;
+                media.onload = resizeAllMasonryItems;
+            }
+
+            item.appendChild(media);
+            gallery.appendChild(item);
+        });
+
+        window.addEventListener('resize', resizeAllMasonryItems);
+    });
+    </script> -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mediaFiles = [
+            "https://i.postimg.cc/6qbxVz0g/AR203957.webp",
+            "/video/v3.mp4",
+            "https://i.postimg.cc/pV6dJd44/DSC03473.webp", 
+            "/video/video2.mp4",
+            "https://i.postimg.cc/65n6dxRN/96.jpg",
+            "/video/v1.mp4", 
+            "https://i.postimg.cc/g08MNrgD/DSC02616.webp",
+            "./video/v4.mp4",
+            "https://i.postimg.cc/PrbRkSYj/DSC04093.webp",
+            "/video/v12.mp4",
+            "https://i.postimg.cc/bYCZVgD6/4.webp",
+            "/video/v5.mp4",
+            "https://i.postimg.cc/CKBBbqLv/AR209663.webp",
+            "./video/v2.mp4",
+            "https://i.postimg.cc/nzLHv8kn/DSC08009.webp",
+            
+            
+        ];
+
+        const gallery = document.getElementById('masonry-gallery');
+        const gridGap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--grid-gap'));
+
+        // function resizeMasonryItem(item) {
+        //     const rowGap = gridGap;
+        //     const rowHeight = 0;
+        //     const mediaEl = item.querySelector('img, video, iframe');
+
+        //     if (!mediaEl) return;
+
+        //     const height = mediaEl.getBoundingClientRect().height;
+        //     const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+        //     item.style.gridRowEnd = 'span ' + rowSpan;
+        // }
+        function resizeMasonryItem(item) {
+            const rowGap = gridGap;
+            const rowHeight = parseInt(getComputedStyle(gallery).getPropertyValue('grid-auto-rows'));
+            const mediaEl = item.querySelector('img, video, iframe');
+
+            if (!mediaEl) return;
+
+            const height = mediaEl.getBoundingClientRect().height;
+            const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = 'span ' + rowSpan;
+            }
+
+
+        function resizeAllMasonryItems() {
+            const allItems = gallery.querySelectorAll('.masonry-item');
+            allItems.forEach(resizeMasonryItem);
+        }
+
+        // Populate gallery
+        mediaFiles.forEach(src => {
+            const item = document.createElement('div');
+            item.className = 'masonry-item';
+
+            let media;
+                if (src.includes("drive.google.com")) {
+                    media = document.createElement('iframe');
+                    media.src = src + "?autoplay=1&mute=1&loop=1";
+                    media.allow = "autoplay";
+                    media.style.width = "100%";
+                    media.style.height = "100%";
+                } else if (src.match(/\.(mp4|webm|ogg)$/i)) {
+                    media = document.createElement('video');
+                    media.src = src;
+                    media.autoplay = true;
+                    media.muted = true;
+                    media.loop = true;
+                    media.playsInline = true;
+                    media.style.width = "100%";
+                    media.style.height = "100%";
+                } else {
+                    media = document.createElement('img');
+                    media.src = src;
+                    media.loading = "lazy";
+                    media.style.width = "100%";
+                    media.style.height = "100%";
+                }
+            item.appendChild(media);
+            gallery.appendChild(item);
+        });
+
+        window.addEventListener('resize', resizeAllMasonryItems);
+    });
+</script>
+
+<script src="script.js"></script>
+</body>
+
+</html>
